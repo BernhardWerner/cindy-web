@@ -3,16 +3,16 @@ A web-based editor for [CindyJS](https://cindyjs.org/) — write, run, and expor
 
 ## Features
 
-- **Tabbed script editor** with syntax highlighting (CodeMirror + Dracula theme) for all CindyJS event slots: `init`, `draw`, `tick`, `mousemove`, `mousedown`, `mousedrag`, `mouseup`
-- **Live preview** on a resizable canvas panel beside the editor
-- **Optional module imports**: Animation, UI, Color, 3D Camera
-- **Prefill support** — load starter code via URL parameter (`?prefill=animationBoilerplate`)
-- **Persistent state** — editor contents and import selections are saved to `localStorage` and restored on reload
+- **Tabbed script editor** with syntax highlighting (CodeMirror + Dracula theme) for the following CindyJS events: `init`, `draw`, `tick`, `mousemove`, `mousedown`, `mousedrag`, `mouseup`.
+- **Live preview** on a resizable canvas panel beside the editor.
+- **Optional module imports**: Animation, UI, Color, 3D Camera. Cf. the [Cindy Tools Repository](https://github.com/BernhardWerner/cindy_tools).
+- **Prefill support** — load starter code via URL parameter (`?prefill=animationBoilerplate`).
+- **Persistent state** — editor contents and import selections are saved to `localStorage` and restored on reload.
 - **Export** — download your sketch as:
   - a single self-contained HTML file with all scripts inlined, or
-  - a ZIP package with `.cjs` files + `config.json` (optionally including imported packages and `Cindy.js`)
-- **Keyboard shortcuts**: `Ctrl/Cmd+Enter` to run, `Ctrl/Cmd+S` to save
-- **Resizable panels** — drag the column and row dividers to adjust editor, console, and canvas sizes
+  - a ZIP package with `.cjs` files + `config.json` (optionally including imported packages and `Cindy.js`).
+- **Keyboard shortcuts**: `Ctrl/Cmd+Enter` to run, `Ctrl/Cmd+S` to save.
+- **Resizable panels** — drag the column and row dividers to adjust editor, console, and canvas sizes.
 
 ## Setup
 
@@ -45,6 +45,8 @@ Example: `editor.html?prefill=animationBoilerplate&animation`
 
 ## Prefills
 
+These are meant to provide templates/scaffolds for typical applications, or when using the web editor in a workshop and the trainer wants to give a base to work off of. Stuff like that. 
+
 Each prefill is a folder under `prefills/` containing one `.cjs` file per script slot (only non-empty slots need a file):
 
 ```
@@ -60,7 +62,7 @@ prefills/
 
 **Single file** — all scripts and (optionally) `Cindy.js` are bundled into one standalone HTML file.
 
-**Packaged ZIP** — scripts are saved as `.cjs` files with a `config.json` manifest, ready to be consumed by the CindyJS package loader. Selected imported packages can be included in the ZIP.
+**Packaged ZIP** — scripts are saved as either full stand-alone `.html` files, or as `.cjs` files with a `config.json` manifest, to be used with the CindyJS package import function.
 
 ## License
 
