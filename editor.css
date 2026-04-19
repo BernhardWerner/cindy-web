@@ -6,28 +6,28 @@
   --bg:                   #f1f5f9;
   --panel:                #ffffff;
   --border:               #e2e8f0;
-  --primary:              #3b82f6;
-  --primary-hover:        #2563eb;
-  --primary-active:       #1d4ed8;
-  --danger:               #ef4444;
-  --danger-hover:         #dc2626;
+  --primary:              #4093bc;
+  --primary-hover:        #0c5aa6;
+  --primary-active:       #19418c;
+  --danger:               #d22125;
+  --danger-hover:         #a11208;
   --secondary-text:       #374151;
   --text:                 #0f172a;
   --text-muted:           #64748b;
-  --console-bg:           #1a1b26;
-  --console-text:         #a9b1d6;
-  --console-error:        #f7768e;
-  --resizer:              #e2e8f0;
-  --resizer-hover:        #94a3b8;
+  --console-bg:           #1a2345;
+  --console-text:         #aaaaaa;
+  --console-error:        #f87b95;
+  --resizer:              #2d4480;
+  --resizer-hover:        #4093bc;
   --chip-bg:              #f1f5f9;
   --chip-border:          #e2e8f0;
   --chip-checked-bg:      #dbeafe;
   --chip-checked-border:  #93c5fd;
-  --chip-checked-text:    #1d4ed8;
-  --tab-bar-bg:           #21222c;
-  --tab-editor-bg:        #282a36;
-  --tab-active-color:     #8be9fd;
-  --tab-inactive-color:   #6272a4;
+  --chip-checked-text:    #0c5aa6;
+  --tab-bar-bg:           #111932;
+  --tab-editor-bg:        #1a2345;
+  --tab-active-color:     #4ac1d4;
+  --tab-inactive-color:   #7f7f7f;
   --font-ui:              system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --shadow-sm:            0 1px 2px 0 rgb(0 0 0 / 0.06);
   --shadow:               0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -277,7 +277,7 @@ html, body {
   display: flex;
   align-items: flex-end;
   background: var(--tab-bar-bg);
-  border-bottom: 1px solid #181a1f;
+  border-bottom: 1px solid #0a0f1e;
   overflow-x: auto;
   flex-shrink: 0;
   scrollbar-width: none;
@@ -302,7 +302,7 @@ html, body {
 }
 
 .tab-links a:hover {
-  color: #cdd6f4;
+  color: #d4d4d4;
 }
 
 .tab-links li.active a {
@@ -421,18 +421,18 @@ textarea {
 .button--danger {
   background: var(--panel);
   color: var(--danger);
-  border-color: #fecaca;
+  border-color: rgba(210, 33, 37, 0.35);
   box-shadow: var(--shadow-sm);
 }
 
 .button--danger:hover {
-  background: #fef2f2;
+  background: rgba(210, 33, 37, 0.08);
   border-color: var(--danger);
 }
 
 .button--ghost {
   background: transparent;
-  color: #4b5568;
+  color: #7f7f7f;
   border-color: transparent;
   padding: 5px 10px;
   font-size: 11px;
@@ -440,7 +440,7 @@ textarea {
 
 .button--ghost:hover {
   background: rgba(255 255 255 / 0.08);
-  color: #9ca3af;
+  color: #aaaaaa;
 }
 
 
@@ -463,14 +463,14 @@ textarea {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: #4b5568;
+  color: #7f7f7f;
 }
 
 .console-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #22c55e;
+  background: #43ba10;
   flex-shrink: 0;
 }
 
@@ -542,20 +542,20 @@ textarea {
 }
 
 .modal {
-  background: #24283b;
-  border: 1px solid #414868;
+  background: #253060;
+  border: 1px solid #2d4480;
   border-radius: 8px;
   padding: 24px;
   width: 420px;
   max-width: 90vw;
-  color: #a9b1d6;
+  color: #aaaaaa;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .modal-title {
   font-size: 15px;
   font-weight: 600;
-  color: #c0caf5;
+  color: #d4d4d4;
   margin: 0 0 18px 0;
 }
 
@@ -573,35 +573,35 @@ textarea {
   display: flex;
   gap: 10px;
   padding: 12px;
-  border: 1px solid #414868;
+  border: 1px solid #2d4480;
   border-radius: 6px;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 }
 
 .export-option:has(input:checked) {
-  border-color: #7aa2f7;
-  background: rgba(122, 162, 247, 0.07);
+  border-color: #4ac1d4;
+  background: rgba(74, 193, 212, 0.07);
 }
 
 .export-option input[type="radio"] {
   margin-top: 2px;
   flex-shrink: 0;
-  accent-color: #7aa2f7;
+  accent-color: #4ac1d4;
 }
 
 .export-option-title {
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: #c0caf5;
+  color: #d4d4d4;
   margin-bottom: 3px;
 }
 
 .export-option-desc {
   display: block;
   font-size: 11px;
-  color: #a9b1d6;
+  color: #aaaaaa;
   line-height: 1.4;
 }
 
@@ -610,28 +610,28 @@ textarea {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #c0caf5;
+  color: #d4d4d4;
   cursor: pointer;
 }
 
 .modal-checkbox input[type="checkbox"] {
-  accent-color: #7aa2f7;
+  accent-color: #4ac1d4;
 }
 
 .modal-label {
   display: block;
   font-size: 12px;
-  color: #a9b1d6;
+  color: #aaaaaa;
   margin-bottom: 6px;
 }
 
 .modal-input {
   width: 100%;
-  background: #1a1b26;
-  border: 1px solid #414868;
+  background: #1a2345;
+  border: 1px solid #2d4480;
   border-radius: 4px;
   padding: 7px 10px;
-  color: #c0caf5;
+  color: #d4d4d4;
   font-size: 13px;
   font-family: inherit;
   outline: none;
@@ -639,7 +639,7 @@ textarea {
 }
 
 .modal-input:focus {
-  border-color: #7aa2f7;
+  border-color: #4ac1d4;
 }
 
 .modal-buttons {
@@ -648,3 +648,38 @@ textarea {
   justify-content: flex-end;
   padding-top: 6px;
 }
+
+
+/* ── CodeMirror palette overrides (replaces Dracula theme colours) ────────── */
+
+.cm-s-dracula.CodeMirror                         { background: #1a2345; color: #d4d4d4; }
+.cm-s-dracula div.CodeMirror-selected            { background: rgba(74, 193, 212, 0.22); }
+.cm-s-dracula .CodeMirror-line::selection,
+.cm-s-dracula .CodeMirror-line > span::selection,
+.cm-s-dracula .CodeMirror-line > span > span::selection { background: rgba(74, 193, 212, 0.22); }
+.cm-s-dracula .CodeMirror-gutters                { background: #111932; border-right: 1px solid #2d4480; }
+.cm-s-dracula .CodeMirror-guttermarker           { color: #d4d4d4; }
+.cm-s-dracula .CodeMirror-guttermarker-subtle    { color: #7f7f7f; }
+.cm-s-dracula .CodeMirror-linenumber             { color: #7f7f7f; }
+.cm-s-dracula .CodeMirror-cursor                 { border-left: solid thin #d4d4d4; }
+.cm-s-dracula .CodeMirror-activeline-background  { background: rgba(255, 255, 255, 0.04); }
+
+.cm-s-dracula .cm-keyword    { color: #ff8c00; }  /* orange1 */
+.cm-s-dracula .cm-operator   { color: #ffba31; }  /* orange2 */
+.cm-s-dracula .cm-variable   { color: #d4d4d4; }  /* grey3 */
+.cm-s-dracula .cm-variable-2 { color: #4ac1d4; }  /* blue3 */
+.cm-s-dracula .cm-variable-3,
+.cm-s-dracula .cm-type       { color: #ffba31; }  /* orange2 */
+.cm-s-dracula .cm-builtin    { color: #77d228; }  /* green2 */
+.cm-s-dracula .cm-atom       { color: #eaa8f8; }  /* violet3 */
+.cm-s-dracula .cm-number     { color: #ffe863; }  /* orange3 */
+.cm-s-dracula .cm-def        { color: #c271e1; }  /* violet2 */
+.cm-s-dracula .cm-string     { color: #b2ed46; }  /* green3 */
+.cm-s-dracula .cm-string-2   { color: #ffba31; }  /* orange2 */
+.cm-s-dracula .cm-comment    { color: #7f7f7f; }  /* grey1 */
+.cm-s-dracula .cm-tag        { color: #ff8c00; }  /* orange1 */
+.cm-s-dracula .cm-meta       { color: #d4d4d4; }  /* grey3 */
+.cm-s-dracula .cm-attribute  { color: #77d228; }  /* green2 */
+.cm-s-dracula .cm-property   { color: #33e99d; }  /* teal3 */
+.cm-s-dracula .cm-qualifier  { color: #77d228; }  /* green2 */
+.cm-s-dracula .cm-error      { color: #d4d4d4; background: #a11208; } /* red0 bg */
