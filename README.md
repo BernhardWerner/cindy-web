@@ -3,7 +3,7 @@ A web-based editor for [CindyJS](https://cindyjs.org/) — write, run, and expor
 
 ## Features
 
-- **Tabbed script editor** with syntax highlighting (CodeMirror + Dracula theme) for the following CindyJS events: `init`, `draw`, `tick`, `mousemove`, `mousedown`, `mousedrag`, `mouseup`.
+- **Tabbed script editor** for the following CindyJS events: `init`, `draw`, `tick`, `mousemove`, `mousedown`, `mousedrag`, `mouseup`.
 - **Live preview** on a resizable canvas panel beside the editor.
 - **Optional module imports**: Animation, UI, Color, 3D Camera. Cf. the [Cindy Tools Repository](https://github.com/BernhardWerner/cindy_tools).
 - **Prefill support** — load starter code via URL parameter (`?prefill=animationBoilerplate`).
@@ -16,20 +16,20 @@ A web-based editor for [CindyJS](https://cindyjs.org/) — write, run, and expor
 
 ## Setup
 
-This editor expects `Cindy.js` (and optionally package folders like `animation/`, `ui/`, `color.cjs`, `camera.cjs`) to live one directory above `cindy-web/`. A typical layout:
+This editor expects `Cindy.js` (and optionally package folders like `animation/`, `ui/`, `color.cjs`, `camera.cjs`) to live alongside `editor.html`. A typical layout:
 
 ```
-parent/
+cindy-web/
 ├── Cindy.js
+├── CindyGL.js          ← optional, only needed if using CindyGL
 ├── animation/
 ├── ui/
 ├── color.cjs
 ├── camera.cjs
-└── cindy-web/
-    ├── editor.html
-    ├── editor.js
-    ├── editor.css
-    └── prefills/
+├── editor.html
+├── editor.js
+├── editor.css
+└── prefills/
 ```
 
 Open `editor.html` via a local web server (e.g. `npx serve .` or `python -m http.server` or VS Code Live Server). Opening it directly as a `file://` URL will block `fetch()` calls used for prefills and exports.

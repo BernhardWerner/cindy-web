@@ -79,10 +79,10 @@ function startCindy() {
 
     // CindyJS distinguishes "packages" (stateful, e.g. Animation, UI) from
     // "singletons" (stateless utility modules, e.g. Color, Camera).
-    if (animationCheckbox.checked) packagesToImport.push("../animation");
-    if (uiCheckbox.checked)        packagesToImport.push("../ui");
-    if (colorCheckbox.checked)     singletsToImport.push("../color");
-    if (cameraCheckbox.checked)    singletsToImport.push("../camera");
+    if (animationCheckbox.checked) packagesToImport.push("./animation");
+    if (uiCheckbox.checked)        packagesToImport.push("./ui");
+    if (colorCheckbox.checked)     singletsToImport.push("./color");
+    if (cameraCheckbox.checked)    singletsToImport.push("./camera");
 
     const params = {
         canvasname: "CSCanvas",
@@ -574,7 +574,7 @@ async function doSingleFileExport(includeCindy, filename) {
     downloadTextFile(filename, generateSingleFileHTML(finalScripts));
 
     if (includeCindy) {
-        await downloadRemoteFile('../Cindy.js', 'Cindy.js');
+        await downloadRemoteFile('Cindy.js', 'Cindy.js');
     }
 }
 
@@ -597,7 +597,7 @@ async function doPackagedExport(includeCindy, includePackages, filename) {
     }
 
     if (includeCindy) {
-        const r = await fetch('../Cindy.js');
+        const r = await fetch('Cindy.js');
         if (r.ok) {
             zip.file('Cindy.js', await r.blob());
         } else {
@@ -633,14 +633,14 @@ async function gatherPackageScripts() {
 
     // Fetch config.json then each .cjs listed in it, preserving declaration order
     async function processPackage(folder) {
-        const config = JSON.parse(await fetchText('../' + folder + '/config.json'));
+        const config = JSON.parse(await fetchText('./' + folder + '/config.json'));
         for (const [slot, entries] of Object.entries(config)) {
             for (const entry of entries) {
                 let name  = typeof entry === 'string' ? entry : entry.name;
                 const place = (typeof entry === 'object' && entry.place != null) ? entry.place : 0;
                 if (!name.endsWith('.cjs')) name += '.cjs';
                 try {
-                    const content = await fetchText('../' + folder + '/' + name);
+                    const content = await fetchText('./' + folder + '/' + name);
                     if (!result[slot]) result[slot] = [];
                     result[slot].push({ place: place, content: content });
                 } catch (e) {
@@ -653,7 +653,7 @@ async function gatherPackageScripts() {
     // Single .cjs file that contributes to the init slot
     async function processSingleton(filename) {
         try {
-            const content = await fetchText('../' + filename);
+            const content = await fetchText('./' + filename);
             if (!result.init) result.init = [];
             result.init.push({ place: 0, content: content });
         } catch (e) {
@@ -681,7 +681,7 @@ async function addImportsToZip(zip) {
     }
 
     async function addPackageFolder(folder) {
-        const configText = await fetchText('../' + folder + '/config.json');
+        const configText = await fetchText('./' + folder + '/config.json');
         zip.file(folder + '/config.json', configText);
         const config = JSON.parse(configText);
         for (const entries of Object.values(config)) {
@@ -689,7 +689,7 @@ async function addImportsToZip(zip) {
                 let name = typeof entry === 'string' ? entry : entry.name;
                 if (!name.endsWith('.cjs')) name += '.cjs';
                 try {
-                    zip.file(folder + '/' + name, await fetchText('../' + folder + '/' + name));
+                    zip.file(folder + '/' + name, await fetchText('./' + folder + '/' + name));
                 } catch (e) {
                     console.log('Export: skipping ' + name + ' — ' + e.message);
                 }
@@ -702,14 +702,14 @@ async function addImportsToZip(zip) {
     if (uiCheckbox.checked)        tasks.push(addPackageFolder('ui'));
     if (colorCheckbox.checked) {
         tasks.push(
-            fetchText('../color.cjs')
+            fetchText('./color.cjs')
                 .then(function(c) { zip.file('color.cjs', c); })
                 .catch(function(e) { console.log('Export: ' + e.message); })
         );
     }
     if (cameraCheckbox.checked) {
         tasks.push(
-            fetchText('../camera.cjs')
+            fetchText('./camera.cjs')
                 .then(function(c) { zip.file('camera.cjs', c); })
                 .catch(function(e) { console.log('Export: ' + e.message); })
         );
